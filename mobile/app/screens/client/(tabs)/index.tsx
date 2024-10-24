@@ -1,11 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import SupplierCarousel from "@/components/SupplierCarousel";
+import Header from "@/components/Header";
+import WelcomeMessage from "@/components/WelcomeMessage"; // Importe o novo componente
 
-export default function Index() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Área do Cliente</Text>
-      <Text style={styles.subtitle}>Bem-vindo(a), cliente!</Text>
+      {/* Cabeçalho fixo no topo */}
+      <Header location="Rua M.M.D.C, 80" notifications={6} />
+
+      {/* Componente de Boas-Vindas */}
+      <WelcomeMessage name="Camila" /> 
+
+      {/* Espaço para o conteúdo abaixo do cabeçalho */}
+      <SupplierCarousel />
+      <SupplierCarousel />
     </View>
   );
 }
@@ -14,19 +24,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
-  title: {
-    fontSize: 32,
-    fontFamily: "FeatherBold",
-    color: "#7400B8",
-    marginBottom: 20,
-  },
-  subtitle: {
-    fontSize: 18,
-    fontFamily: "FeatherBold",
-    color: "#48BFE3",
+    paddingTop: 10,
+    paddingHorizontal: 12,
   },
 });
